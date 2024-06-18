@@ -21,6 +21,7 @@ class HerMessageBubble extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Text(
               message.text,
+
               style: TextStyle(color: Colors.white),
             ),
           ),
@@ -44,7 +45,7 @@ class _ImageBubble extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
       child: Image.network(
-        'https://yesno.wtf/assets/yes/3-422e51268d64d78241720a7de52fe121.gif',
+        '',
         width: size.width * 0.7,
         height: 150,
         fit: BoxFit.cover,
