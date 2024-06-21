@@ -6,12 +6,13 @@ class GetYesNoAnswer {
   final _dio = Dio();
 
   Future<Message> getAnswer() async {
+    /* Peticion http(get) mediante dio */
     final response = await _dio.get('http://yesno.wtf/api');
 
-    /*Guarda el mapa de los datos de la respuesta(json) Map<String, dynamic>*/
-    final yesNoModel = YesNoModel.fromJsonMap(response.data);
+    /*Genera la instancia de la respuesta usando el factory del modelo*/
+    final yesNoModel = YesNoModel.fromJson(response.data);
 
-    /*Genera la identidad a raiz del mapa */
+    /*Genera entidad usando la instancia que ha generado el modelo */
     return yesNoModel.toMessageEntity();
   }
 }

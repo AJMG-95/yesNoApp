@@ -1,3 +1,10 @@
+/*
+Entidad local con la que se trabaja dentro de la aplicación,
+sirve como una capa extra para proteger la app de cambios en la
+respuesta de la api que conllevaría cambios en el modelo.
+Así pues un ante cambio en la espuesta de la api solo habria
+que modificar el modelo
+*/
 enum FromWho { me, other }
 
 class Message {
@@ -6,12 +13,4 @@ class Message {
   final FromWho fromWho;
 
   Message({required this.text, this.imageUrl, required this.fromWho});
-
-  factory Message.fromJson(Map<String, dynamic> json) {
-    return Message(
-      text: json['text'] ?? '',
-      imageUrl: json['image'],
-      fromWho: json['from'] == 'me' ? FromWho.me : FromWho.other,
-    );
-  }
 }
